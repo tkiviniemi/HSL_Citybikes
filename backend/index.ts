@@ -1,5 +1,7 @@
 import express, { Express, Request, Response } from 'express';
 import cors from 'cors';
+import dotenv from 'dotenv';
+dotenv.config();
 
 import journeysRouter from './routes/journeys.routes';
 import stationsRouter from './routes/stations.routes';
