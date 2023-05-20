@@ -3,8 +3,11 @@ import prisma from '../db/connection';
 
 const getJourneys = async (req: Request, res: Response) => {
   try {
+    const { page, limit } = req.query;
+
     const journeyData = await prisma.journeys.findMany({
-      take: 10,
+      skip: Number(page) * Number(limit),
+      take: Number(limit),
     });
 
     res.status(200).json({ journeyData });
