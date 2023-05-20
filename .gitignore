@@ -6,3 +6,6 @@ node_modules/
 
 # dotenv files
 .env
+
+# .rest file for testing
+*.rest

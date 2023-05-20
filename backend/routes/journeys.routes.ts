@@ -1,9 +1,9 @@
 import express from 'express';
 
+import { getJourneys } from '../controllers/journeys.controllers';
+
 const journeysRouter = express.Router();
 
-journeysRouter.get('/', (req, res) => {
-  res.send('OK');
-});
+journeysRouter.get('/', getJourneys);
 
 export default journeysRouter;
