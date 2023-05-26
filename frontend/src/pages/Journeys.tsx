@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import JourneyList from '../components/JourneyList';
+import LoadingSpinner from '../components/LoadingSpinner';
 
 import { getJourneys } from '../api/journeys';
 
@@ -30,7 +31,7 @@ function Journeys() {
     refetch();
   }, [sortKey, sortDirection, refetch]);
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <LoadingSpinner />;
 
   if (error) return <div>An error has occurred</div>;
 
