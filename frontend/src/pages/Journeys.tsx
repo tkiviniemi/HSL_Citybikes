@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useQuery } from 'react-query';
 import JourneyList from '../components/JourneyList';
 
@@ -13,16 +13,22 @@ function Journeys() {
   const [sortDirection, setSortDirection] = useState<SortOrder>('asc');
 
   const handleSortingChange = (key: SortKey) => {
-    setSortKey(key);
-    setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
-    console.log(sortKey, sortDirection);
-    refetch();
+    if (key === sortKey) {
+      setSortDirection(sortDirection === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortKey(key);
+      setSortDirection('asc');
+    }
   };
 
   const { isLoading, error, data, refetch } = useQuery({
     queryKey: 'journeys',
     queryFn: () => getJourneys(sortKey, sortDirection),
   });
+
+  useEffect(() => {
+    refetch();
+  }, [sortKey, sortDirection, refetch]);
 
   if (isLoading) return <div>Loading...</div>;
 
