@@ -7,7 +7,7 @@ const getJourneys = async (req: Request, res: Response) => {
     const sortKey: string = req.query.sortKey as string;
 
     const journeyData = await prisma.journeys.findMany({
-      skip: Number(page) * Number(limit),
+      skip: Number(page) * Number(limit) - Number(limit),
       take: Number(limit),
       orderBy: {
         [sortKey]: sortOrder,
