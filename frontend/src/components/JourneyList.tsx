@@ -1,15 +1,21 @@
 import JourneyListItem from './JourneyListItem';
 import { Journey } from '../interfaces/journey.interface';
 import ListHeader from './ListHeader';
+import Pagination from './Pagination';
 
 type SortKey = keyof Journey;
+type PageChange = 'next' | 'prev' | 'reset';
 
 function JourneyList({
   journeyData,
   handleSortingChange,
+  handlePageChange,
+  handleLimitChange,
 }: {
   journeyData: Journey[];
   handleSortingChange: (key: SortKey) => void;
+  handlePageChange: (pageChange: PageChange) => void;
+  handleLimitChange: (limitChange: number) => void;
 }) {
   return (
     <div className="flex justify-center">
@@ -20,6 +26,10 @@ function JourneyList({
             <JourneyListItem key={journey.id} journey={journey} />
           ))}
         </tbody>
+        <Pagination
+          handlePageChange={handlePageChange}
+          handleLimitChange={handleLimitChange}
+        />
       </table>
     </div>
   );

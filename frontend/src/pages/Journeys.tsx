@@ -8,10 +8,19 @@ import { getJourneys } from '../api/journeys';
 import { Journey } from '../interfaces/journey.interface';
 type SortKey = keyof Journey;
 type SortOrder = 'asc' | 'desc';
+type PageChange = 'next' | 'prev' | 'reset';
 
 function Journeys() {
   const [sortKey, setSortKey] = useState<SortKey>('id');
   const [sortDirection, setSortDirection] = useState<SortOrder>('asc');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [limitPerPage, setLimitPerPage] = useState<number>(10);
+
+  const { isLoading, error, data, refetch } = useQuery({
+    queryKey: 'journeys',
+    queryFn: () =>
+      getJourneys(sortKey, sortDirection, currentPage, limitPerPage),
+  });
 
   const handleSortingChange = (key: SortKey) => {
     if (key === sortKey) {
@@ -22,14 +31,22 @@ function Journeys() {
     }
   };
 
-  const { isLoading, error, data, refetch } = useQuery({
-    queryKey: 'journeys',
-    queryFn: () => getJourneys(sortKey, sortDirection),
-  });
+  const handlePageChange = (pageChange: PageChange) => {
+    if (pageChange === 'next') {
+      setCurrentPage(currentPage + 1);
+    } else if (pageChange === 'prev' && currentPage > 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleLimitChange = (limitChange: number) => {
+    setLimitPerPage(limitChange);
+    setCurrentPage(1);
+  };
 
   useEffect(() => {
     refetch();
-  }, [sortKey, sortDirection, refetch]);
+  }, [sortKey, sortDirection, currentPage, limitPerPage, refetch]);
 
   if (isLoading) return <LoadingSpinner />;
 
@@ -39,6 +56,8 @@ function Journeys() {
     <JourneyList
       journeyData={data.journeyData}
       handleSortingChange={handleSortingChange}
+      handlePageChange={handlePageChange}
+      handleLimitChange={handleLimitChange}
     />
   );
 }
