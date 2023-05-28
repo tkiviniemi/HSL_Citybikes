@@ -18,7 +18,7 @@ function Pagination({
       </div>
       <div>
         <button
-          className="rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center"
+          className="inline-flex items-center rounded-lg px-4 py-2.5 text-center text-sm"
           type="button"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         >

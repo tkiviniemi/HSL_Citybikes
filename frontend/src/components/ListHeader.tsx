@@ -19,7 +19,7 @@ function ListHeader({
 
   return (
     <thead>
-      <tr className="flex flex-row font-bold gap-4">
+      <tr className="flex flex-row gap-4 font-bold">
         {keys.map((key) => (
           <th
             key={key.id}
