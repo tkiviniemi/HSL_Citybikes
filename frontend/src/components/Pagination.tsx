@@ -11,51 +11,40 @@ function Pagination({
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
 
   return (
-    <div className="flex flex-row justify-center gap-4 font-extrabold">
-      <div>
-        <button onClick={() => handlePageChange('prev')}>&larr;</button>
-        <button onClick={() => handlePageChange('next')}>&rarr;</button>
-      </div>
-      <div>
-        <button
-          className="inline-flex items-center rounded-lg px-4 py-2.5 text-center text-sm"
-          type="button"
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        >
-          Show Per Page
-        </button>
-        {isDropdownOpen && (
-          <div className="flex flex-col">
-            <button
-              onClick={() => {
-                handleLimitChange(10);
-                setIsDropdownOpen(false);
-              }}
-              className=""
-            >
-              10
-            </button>
-            <button
-              onClick={() => {
-                handleLimitChange(20);
-                setIsDropdownOpen(false);
-              }}
-              className=""
-            >
-              20
-            </button>
-            <button
-              onClick={() => {
-                handleLimitChange(30);
-                setIsDropdownOpen(false);
-              }}
-              className=""
-            >
-              30
-            </button>
-          </div>
-        )}
-      </div>
+    <div className="flex justify-between p-2">
+      <button onClick={() => handlePageChange('prev')}>Previous</button>
+      <button onClick={() => handlePageChange('next')}>Next</button>
+      <button type="button" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+        Show Per Page
+      </button>
+      {isDropdownOpen && (
+        <div className="flex flex-col">
+          <button
+            onClick={() => {
+              handleLimitChange(10);
+              setIsDropdownOpen(false);
+            }}
+          >
+            10
+          </button>
+          <button
+            onClick={() => {
+              handleLimitChange(20);
+              setIsDropdownOpen(false);
+            }}
+          >
+            20
+          </button>
+          <button
+            onClick={() => {
+              handleLimitChange(30);
+              setIsDropdownOpen(false);
+            }}
+          >
+            30
+          </button>
+        </div>
+      )}
     </div>
   );
 }

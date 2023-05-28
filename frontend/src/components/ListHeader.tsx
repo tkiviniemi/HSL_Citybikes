@@ -18,10 +18,11 @@ function ListHeader({
   ];
 
   return (
-    <thead>
-      <tr className="flex flex-row gap-4 font-bold">
+    <thead className="border-b-2 border-slate-900 text-left text-sm uppercase">
+      <tr>
         {keys.map((key) => (
           <th
+            className="p-3 font-semibold"
             key={key.id}
             onClick={() => handleSortingChange(key.id as keyof Journey)}
           >

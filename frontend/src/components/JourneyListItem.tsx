@@ -7,14 +7,14 @@ function JourneyListItem({ journey }: { journey: Journey }) {
   const duration = Math.round(journey.duration / 60);
 
   return (
-    <tr className="flex justify-between hover:bg-blue-200">
-      <td>{journey.id}</td>
-      <td>{journey.departure_station_name}</td>
-      <td>{departure_time}</td>
-      <td>{journey.return_station_name}</td>
-      <td>{return_time}</td>
-      <td>{covered_distance} km</td>
-      <td>{duration} min</td>
+    <tr className="border-b hover:bg-blue-200">
+      <td className="p-3">{journey.id}</td>
+      <td className="p-3">{journey.departure_station_name}</td>
+      <td className="p-3">{departure_time}</td>
+      <td className="p-3">{journey.return_station_name}</td>
+      <td className="p-3">{return_time}</td>
+      <td className="p-3">{covered_distance} km</td>
+      <td className="p-3">{duration} min</td>
     </tr>
   );
 }

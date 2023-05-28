@@ -53,12 +53,14 @@ function Journeys() {
   if (error) return <div>An error has occurred</div>;
 
   return (
-    <JourneyList
-      journeyData={data.journeyData}
-      handleSortingChange={handleSortingChange}
-      handlePageChange={handlePageChange}
-      handleLimitChange={handleLimitChange}
-    />
+    <div className="flex justify-center md:pt-6">
+      <JourneyList
+        journeyData={data.journeyData}
+        handleSortingChange={handleSortingChange}
+        handlePageChange={handlePageChange}
+        handleLimitChange={handleLimitChange}
+      />
+    </div>
   );
 }
 

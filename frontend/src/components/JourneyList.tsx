@@ -18,10 +18,10 @@ function JourneyList({
   handleLimitChange: (limitChange: number) => void;
 }) {
   return (
-    <div className="flex justify-center">
-      <table>
+    <div className="relative overflow-x-auto rounded-lg bg-slate-50 shadow-md">
+      <table className="text-md w-auto">
         <ListHeader handleSortingChange={handleSortingChange} />
-        <tbody className="flex flex-col">
+        <tbody>
           {journeyData.map((journey: Journey) => (
             <JourneyListItem key={journey.id} journey={journey} />
           ))}
