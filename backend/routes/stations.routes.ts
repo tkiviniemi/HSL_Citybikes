@@ -1,9 +1,13 @@
 import express from 'express';
 
-import { getStations } from '../controllers/stations.controllers';
+import {
+  getStations,
+  getStationById,
+} from '../controllers/stations.controllers';
 
 const stationsRouter = express.Router();
 
 stationsRouter.get('/', getStations);
+stationsRouter.get('/:id', getStationById);
 
 export default stationsRouter;
