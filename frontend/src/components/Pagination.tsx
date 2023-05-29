@@ -1,5 +1,4 @@
-import { useState } from 'react';
-type PageChange = 'next' | 'prev' | 'reset';
+type PageChange = 'next' | 'prev';
 
 function Pagination({
   handlePageChange,

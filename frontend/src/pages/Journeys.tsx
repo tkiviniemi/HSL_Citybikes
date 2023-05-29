@@ -8,7 +8,7 @@ import { getJourneys } from '../api/journeys';
 import { Journey } from '../interfaces/journey.interface';
 type SortKey = keyof Journey;
 type SortOrder = 'asc' | 'desc';
-type PageChange = 'next' | 'prev' | 'reset';
+type PageChange = 'next' | 'prev';
 
 function Journeys() {
   const [sortKey, setSortKey] = useState<SortKey>('id');

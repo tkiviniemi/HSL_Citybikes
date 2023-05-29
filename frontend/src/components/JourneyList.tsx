@@ -4,7 +4,7 @@ import ListHeader from './ListHeader';
 import Pagination from './Pagination';
 
 type SortKey = keyof Journey;
-type PageChange = 'next' | 'prev' | 'reset';
+type PageChange = 'next' | 'prev';
 
 function JourneyList({
   journeyData,
