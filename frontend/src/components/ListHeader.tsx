@@ -11,7 +11,7 @@ function ListHeader({
     { id: 'id', name: 'ID' },
     { id: 'departure_station_name', name: 'Departure Station' },
     { id: 'return_station_name', name: 'Return Station' },
-    { id: 'covered_distance', name: 'Covered Distance' },
+    { id: 'covered_distance', name: 'Distance' },
     { id: 'duration', name: 'Duration' },
   ];
 
