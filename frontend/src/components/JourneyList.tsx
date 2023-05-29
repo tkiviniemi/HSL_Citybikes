@@ -17,10 +17,18 @@ function JourneyList({
   handlePageChange: (pageChange: PageChange) => void;
   handleLimitChange: (limitChange: number) => void;
 }) {
+  const keys = [
+    { id: 'id', name: 'ID' },
+    { id: 'departure_station_name', name: 'Departure Station' },
+    { id: 'return_station_name', name: 'Return Station' },
+    { id: 'covered_distance', name: 'Distance' },
+    { id: 'duration', name: 'Duration' },
+  ];
+
   return (
     <div className="relative overflow-x-auto rounded-lg bg-slate-100 shadow-md">
       <table className="text-md table-fixed">
-        <ListHeader handleSortingChange={handleSortingChange} />
+        <ListHeader data={keys} handleSortingChange={handleSortingChange} />
         <tbody>
           {journeyData.map((journey: Journey) => (
             <JourneyListItem key={journey.id} journey={journey} />
