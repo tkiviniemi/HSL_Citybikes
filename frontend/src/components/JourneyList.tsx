@@ -26,11 +26,11 @@ function JourneyList({
             <JourneyListItem key={journey.id} journey={journey} />
           ))}
         </tbody>
-        <Pagination
-          handlePageChange={handlePageChange}
-          handleLimitChange={handleLimitChange}
-        />
       </table>
+      <Pagination
+        handlePageChange={handlePageChange}
+        handleLimitChange={handleLimitChange}
+      />
     </div>
   );
 }
