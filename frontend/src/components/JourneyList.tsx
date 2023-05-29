@@ -18,7 +18,7 @@ function JourneyList({
   handleLimitChange: (limitChange: number) => void;
 }) {
   return (
-    <div className="relative overflow-x-auto rounded-lg bg-slate-50 shadow-md">
+    <div className="relative overflow-x-auto rounded-lg bg-slate-100 shadow-md">
       <table className="text-md w-auto">
         <ListHeader handleSortingChange={handleSortingChange} />
         <tbody>

@@ -53,7 +53,7 @@ function Journeys() {
   if (error) return <div>An error has occurred</div>;
 
   return (
-    <div className="flex justify-center md:pt-6">
+    <div className="flex justify-center md:py-6">
       <JourneyList
         journeyData={data.journeyData}
         handleSortingChange={handleSortingChange}
