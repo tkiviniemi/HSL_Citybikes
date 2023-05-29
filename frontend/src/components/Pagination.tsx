@@ -3,21 +3,26 @@ type PageChange = 'next' | 'prev';
 function Pagination({
   handlePageChange,
   handleLimitChange,
+  currentPage,
+  limitPerPage,
 }: {
   handlePageChange: (pageChange: PageChange) => void;
   handleLimitChange: (limitChange: number) => void;
+  currentPage: number;
+  limitPerPage: number;
 }) {
   return (
     <div className="flex justify-evenly border-t-2 border-cyan-800 p-2 align-middle text-sm">
       <div className="flex flex-row gap-1">
         <button
-          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1"
+          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1 shadow-md hover:bg-slate-300"
           onClick={() => handlePageChange('prev')}
         >
           Previous
         </button>
+        <p className="px-2 py-1">{currentPage}</p>
         <button
-          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1"
+          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1 shadow-md hover:bg-slate-300"
           onClick={() => handlePageChange('next')}
         >
           Next
@@ -26,7 +31,9 @@ function Pagination({
       <div className="flex flex-row gap-1">
         <p className="py-1">Limit:</p>
         <button
-          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1"
+          className={`rounded-md border-cyan-800 px-2 py-1 shadow-md hover:bg-slate-300 ${
+            limitPerPage === 10 ? 'border-2' : 'border'
+          }`}
           onClick={() => {
             handleLimitChange(10);
           }}
@@ -34,7 +41,9 @@ function Pagination({
           10
         </button>
         <button
-          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1"
+          className={`rounded-md border-cyan-800 bg-slate-200 px-2 py-1 shadow-md hover:bg-slate-300 ${
+            limitPerPage === 20 ? 'border-2' : 'border'
+          }`}
           onClick={() => {
             handleLimitChange(20);
           }}
@@ -42,7 +51,9 @@ function Pagination({
           20
         </button>
         <button
-          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1"
+          className={`rounded-md border-cyan-800 bg-slate-200 px-2 py-1 shadow-md hover:bg-slate-300 ${
+            limitPerPage === 30 ? 'border-2' : 'border'
+          }`}
           onClick={() => {
             handleLimitChange(30);
           }}

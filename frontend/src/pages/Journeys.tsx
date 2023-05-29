@@ -59,6 +59,8 @@ function Journeys() {
         handleSortingChange={handleSortingChange}
         handlePageChange={handlePageChange}
         handleLimitChange={handleLimitChange}
+        currentPage={currentPage}
+        limitPerPage={limitPerPage}
       />
     </div>
   );

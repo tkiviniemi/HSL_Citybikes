@@ -11,11 +11,15 @@ function JourneyList({
   handleSortingChange,
   handlePageChange,
   handleLimitChange,
+  currentPage,
+  limitPerPage,
 }: {
   journeyData: Journey[];
   handleSortingChange: (key: SortKey) => void;
   handlePageChange: (pageChange: PageChange) => void;
   handleLimitChange: (limitChange: number) => void;
+  currentPage: number;
+  limitPerPage: number;
 }) {
   const keys = [
     { id: 'id', name: 'ID' },
@@ -38,6 +42,8 @@ function JourneyList({
       <Pagination
         handlePageChange={handlePageChange}
         handleLimitChange={handleLimitChange}
+        currentPage={currentPage}
+        limitPerPage={limitPerPage}
       />
     </div>
   );
