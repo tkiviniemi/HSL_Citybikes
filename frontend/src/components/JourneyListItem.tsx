@@ -6,11 +6,15 @@ function JourneyListItem({ journey }: { journey: Journey }) {
 
   return (
     <tr className="border-b hover:bg-cyan-600 hover:bg-opacity-40">
-      <td className="p-3">{journey.id}</td>
-      <td className="p-3">{journey.departure_station_name}</td>
-      <td className="p-3">{journey.return_station_name}</td>
-      <td className="p-3">{covered_distance} km</td>
-      <td className="p-3">{duration} min</td>
+      <td className="whitespace-nowrap p-3 md:w-24">{journey.id}</td>
+      <td className="whitespace-nowrap p-3 md:w-80">
+        {journey.departure_station_name}
+      </td>
+      <td className="whitespace-nowrap p-3 md:w-80">
+        {journey.return_station_name}
+      </td>
+      <td className="whitespace-nowrap p-3 md:w-32">{covered_distance} km</td>
+      <td className="whitespace-nowrap p-3 md:w-32">{duration} min</td>
     </tr>
   );
 }

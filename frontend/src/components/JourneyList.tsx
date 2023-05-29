@@ -19,7 +19,7 @@ function JourneyList({
 }) {
   return (
     <div className="relative overflow-x-auto rounded-lg bg-slate-100 shadow-md">
-      <table className="text-md w-auto">
+      <table className="text-md table-fixed">
         <ListHeader handleSortingChange={handleSortingChange} />
         <tbody>
           {journeyData.map((journey: Journey) => (
