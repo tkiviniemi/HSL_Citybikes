@@ -7,43 +7,49 @@ function Pagination({
   handlePageChange: (pageChange: PageChange) => void;
   handleLimitChange: (limitChange: number) => void;
 }) {
-  const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
-
   return (
-    <div className="flex justify-between p-2">
-      <button onClick={() => handlePageChange('prev')}>Previous</button>
-      <button onClick={() => handlePageChange('next')}>Next</button>
-      <button type="button" onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
-        Show Per Page
-      </button>
-      {isDropdownOpen && (
-        <div className="flex flex-col">
-          <button
-            onClick={() => {
-              handleLimitChange(10);
-              setIsDropdownOpen(false);
-            }}
-          >
-            10
-          </button>
-          <button
-            onClick={() => {
-              handleLimitChange(20);
-              setIsDropdownOpen(false);
-            }}
-          >
-            20
-          </button>
-          <button
-            onClick={() => {
-              handleLimitChange(30);
-              setIsDropdownOpen(false);
-            }}
-          >
-            30
-          </button>
-        </div>
-      )}
+    <div className="flex justify-evenly border-t-2 border-cyan-800 p-2 align-middle text-sm">
+      <div className="flex flex-row gap-1">
+        <button
+          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1"
+          onClick={() => handlePageChange('prev')}
+        >
+          Previous
+        </button>
+        <button
+          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1"
+          onClick={() => handlePageChange('next')}
+        >
+          Next
+        </button>
+      </div>
+      <div className="flex flex-row gap-1">
+        <p className="py-1">Limit:</p>
+        <button
+          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1"
+          onClick={() => {
+            handleLimitChange(10);
+          }}
+        >
+          10
+        </button>
+        <button
+          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1"
+          onClick={() => {
+            handleLimitChange(20);
+          }}
+        >
+          20
+        </button>
+        <button
+          className="rounded-md border border-cyan-800 bg-slate-200 px-2 py-1"
+          onClick={() => {
+            handleLimitChange(30);
+          }}
+        >
+          30
+        </button>
+      </div>
     </div>
   );
 }
