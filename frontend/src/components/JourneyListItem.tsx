@@ -5,7 +5,7 @@ function JourneyListItem({ journey }: { journey: Journey }) {
   const duration = Math.round(journey.duration / 60);
 
   return (
-    <tr className="border-b hover:bg-blue-200">
+    <tr className="border-b hover:bg-cyan-600 hover:bg-opacity-40">
       <td className="p-3">{journey.id}</td>
       <td className="p-3">{journey.departure_station_name}</td>
       <td className="p-3">{journey.return_station_name}</td>

@@ -16,7 +16,7 @@ function ListHeader({
   ];
 
   return (
-    <thead className="border-b-2 border-slate-900 text-left text-sm uppercase">
+    <thead className="border-b-2 border-cyan-800 text-left text-sm uppercase">
       <tr>
         {keys.map((key) => (
           <th
