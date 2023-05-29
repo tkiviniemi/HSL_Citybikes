@@ -10,9 +10,7 @@ function ListHeader({
   const keys = [
     { id: 'id', name: 'ID' },
     { id: 'departure_station_name', name: 'Departure Station' },
-    { id: 'departure_time', name: 'Departure Time' },
     { id: 'return_station_name', name: 'Return Station' },
-    { id: 'return_time', name: 'Return Time' },
     { id: 'covered_distance', name: 'Covered Distance' },
     { id: 'duration', name: 'Duration' },
   ];
