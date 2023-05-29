@@ -1,10 +1,10 @@
 function Navbar() {
   return (
-    <nav className="border-b border-slate-900 bg-white">
+    <nav className="sticky top-0 z-50 border-b-2 border-slate-800 bg-cyan-800">
       <div className="mx-auto flex max-w-screen-xl items-center justify-evenly p-4">
         <a
           href="/"
-          className="flex items-center self-center text-2xl font-semibold"
+          className="flex items-center self-center text-2xl font-semibold text-slate-100 hover:text-cyan-600"
         >
           HSL Citybikes
         </a>
@@ -13,7 +13,7 @@ function Navbar() {
             <li>
               <a
                 href="/"
-                className="block rounded text-slate-900 hover:bg-gray-100 hover:text-slate-500"
+                className="block rounded px-2 py-1 text-slate-100 hover:bg-slate-200 hover:bg-opacity-10 hover:text-cyan-600"
               >
                 Home
               </a>
@@ -21,7 +21,7 @@ function Navbar() {
             <li>
               <a
                 href="/journeys"
-                className="block rounded text-slate-900 hover:bg-gray-100 hover:text-slate-500"
+                className="block rounded px-2 py-1 text-slate-100 hover:bg-slate-200 hover:bg-opacity-10 hover:text-cyan-600"
               >
                 Journeys
               </a>
@@ -29,7 +29,7 @@ function Navbar() {
             <li>
               <a
                 href="/stations"
-                className="block rounded text-slate-900 hover:bg-gray-100 hover:text-slate-500"
+                className="block rounded px-2 py-1 text-slate-100 hover:bg-slate-200 hover:bg-opacity-10 hover:text-cyan-600"
               >
                 Stations
               </a>
