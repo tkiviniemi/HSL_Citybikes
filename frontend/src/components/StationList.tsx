@@ -1,6 +1,5 @@
 import StationListItem from './StationListItem';
 import { Station } from '../interfaces/station.interface';
-import StationListHeader from './StationListHeader';
 import Pagination from './Pagination';
 
 type StationSortKey = keyof Station;
@@ -31,10 +30,19 @@ function StationList({
   return (
     <div className="relative overflow-x-auto rounded-lg bg-slate-100 shadow-md">
       <table className="text-md table-fixed">
-        <StationListHeader
-          data={keys}
-          handleSortingChange={handleSortingChange}
-        />
+        <thead className="border-b-2 border-cyan-800 text-left text-sm uppercase">
+          <tr>
+            {keys.map((key) => (
+              <th
+                className="p-3 font-semibold"
+                key={key.id}
+                onClick={() => handleSortingChange(key.id as keyof Station)}
+              >
+                {key.name}
+              </th>
+            ))}
+          </tr>
+        </thead>
         <tbody>
           {stationData.map((station: Station) => (
             <StationListItem key={station.station_id} station={station} />

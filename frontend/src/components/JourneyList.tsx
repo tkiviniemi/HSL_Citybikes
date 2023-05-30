@@ -32,10 +32,19 @@ function JourneyList({
   return (
     <div className="relative overflow-x-auto rounded-lg bg-slate-100 shadow-md">
       <table className="text-md table-fixed">
-        <JourneyListHeader
-          data={keys}
-          handleSortingChange={handleSortingChange}
-        />
+        <thead className="border-b-2 border-cyan-800 text-left text-sm uppercase">
+          <tr>
+            {keys.map((key) => (
+              <th
+                className="p-3 font-semibold"
+                key={key.id}
+                onClick={() => handleSortingChange(key.id as keyof Journey)}
+              >
+                {key.name}
+              </th>
+            ))}
+          </tr>
+        </thead>
         <tbody>
           {journeyData.map((journey: Journey) => (
             <JourneyListItem key={journey.id} journey={journey} />
