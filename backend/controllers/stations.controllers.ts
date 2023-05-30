@@ -47,7 +47,7 @@ const getStationById = async (req: Request, res: Response) => {
         return_station_id: Number(id),
       },
       _count: {
-        departure_station_id: true,
+        return_station_id: true,
       },
       _avg: {
         covered_distance: true,
