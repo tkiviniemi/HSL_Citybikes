@@ -1,6 +1,6 @@
 import JourneyListItem from './JourneyListItem';
 import { Journey } from '../interfaces/journey.interface';
-import ListHeader from './JourneyListHeader';
+import JourneyListHeader from './JourneyListHeader';
 import Pagination from './Pagination';
 
 type SortKey = keyof Journey;
@@ -32,7 +32,10 @@ function JourneyList({
   return (
     <div className="relative overflow-x-auto rounded-lg bg-slate-100 shadow-md">
       <table className="text-md table-fixed">
-        <ListHeader data={keys} handleSortingChange={handleSortingChange} />
+        <JourneyListHeader
+          data={keys}
+          handleSortingChange={handleSortingChange}
+        />
         <tbody>
           {journeyData.map((journey: Journey) => (
             <JourneyListItem key={journey.id} journey={journey} />

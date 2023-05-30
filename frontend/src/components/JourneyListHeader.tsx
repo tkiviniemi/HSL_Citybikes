@@ -1,7 +1,7 @@
 import { Journey } from '../interfaces/journey.interface';
 type SortKey = keyof Journey;
 
-function ListHeader({
+function JourneyListHeader({
   data,
   handleSortingChange,
 }: {
@@ -25,4 +25,4 @@ function ListHeader({
   );
 }
 
-export default ListHeader;
+export default JourneyListHeader;
