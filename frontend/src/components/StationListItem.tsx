@@ -6,7 +6,7 @@ function StationListItem({ station }: { station: Station }) {
       <td className="whitespace-nowrap p-3 md:w-24">{station.station_id}</td>
       <td className="whitespace-nowrap p-3 md:w-80">{station.name_fi}</td>
       <td className="whitespace-nowrap p-3 md:w-80">{station.address_fi}</td>
-      <td className="whitespace-nowrap p-3 md:w-80">{station.city_fi}</td>
+      <td className="whitespace-nowrap p-3 md:w-48">{station.city_fi}</td>
     </tr>
   );
 }
