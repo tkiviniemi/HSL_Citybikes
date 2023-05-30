@@ -1,0 +1,54 @@
+import StationListItem from './StationListItem';
+import { Station } from '../interfaces/station.interface';
+import StationListHeader from './StationListHeader';
+import Pagination from './Pagination';
+
+type StationSortKey = keyof Station;
+type PageChange = 'next' | 'prev';
+
+function StationList({
+  stationData,
+  handleSortingChange,
+  handlePageChange,
+  handleLimitChange,
+  currentPage,
+  limitPerPage,
+}: {
+  stationData: Station[];
+  handleSortingChange: (key: StationSortKey) => void;
+  handlePageChange: (pageChange: PageChange) => void;
+  handleLimitChange: (limitChange: number) => void;
+  currentPage: number;
+  limitPerPage: number;
+}) {
+  const keys = [
+    { id: 'station_id', name: 'ID' },
+    { id: 'name_fi', name: 'Station Name' },
+    { id: 'address_fi', name: 'Address' },
+    { id: 'city_fi', name: 'City' },
+  ];
+
+  return (
+    <div className="relative overflow-x-auto rounded-lg bg-slate-100 shadow-md">
+      <table className="text-md table-fixed">
+        <StationListHeader
+          data={keys}
+          handleSortingChange={handleSortingChange}
+        />
+        <tbody>
+          {stationData.map((station: Station) => (
+            <StationListItem key={station.station_id} station={station} />
+          ))}
+        </tbody>
+      </table>
+      <Pagination
+        handlePageChange={handlePageChange}
+        handleLimitChange={handleLimitChange}
+        currentPage={currentPage}
+        limitPerPage={limitPerPage}
+      />
+    </div>
+  );
+}
+
+export default StationList;
