@@ -10,4 +10,20 @@ export interface Station {
   capacity: number;
   long: number;
   lat: number;
+  departure_statistics: {
+    _count: {
+      departure_station_id: number;
+    };
+    _avg: {
+      covered_distance: number;
+    };
+  };
+  return_statistics: {
+    _count: {
+      return_station_id: number;
+    };
+    _avg: {
+      covered_distance: number;
+    };
+  };
 }
