@@ -21,6 +21,12 @@ Purpose of the app is to be able to explore data from journeys made with city bi
   - PostgreSQL
   - Docker
 
+## Dependencies
+
+- Docker Desktop
+- Node
+- Python and it's Pandas library (if processing the data yourself)
+
 ## Getting Started
 
 ### Importing the data (2 options)
@@ -70,7 +76,7 @@ Purpose of the app is to be able to explore data from journeys made with city bi
           "covered_distance": 1952,
           "duration": 544
         },
-        //...18 more objects...
+        ...18 more objects...
         {
           "id": 40,
           "departure_time": "2021-05-31T23:33:58.000Z",
@@ -110,7 +116,7 @@ Purpose of the app is to be able to explore data from journeys made with city bi
           "long": 24.949399999845,
           "lat": 60.1808629918822
         },
-        //...8 more objects...
+        ...8 more objects...
         {
           "station_id": 242,
           "name_fi": "Von Daehnin katu",
