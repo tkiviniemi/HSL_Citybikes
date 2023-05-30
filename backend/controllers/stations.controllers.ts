@@ -24,11 +24,41 @@ const getStationById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
 
-    const stationData = await prisma.stations.findUniqueOrThrow({
+    const singleStationData = await prisma.stations.findUniqueOrThrow({
       where: {
         station_id: Number(id),
       },
     });
+
+    const departure_statistics = await prisma.journeys.aggregate({
+      where: {
+        departure_station_id: Number(id),
+      },
+      _count: {
+        departure_station_id: true,
+      },
+      _avg: {
+        covered_distance: true,
+      },
+    });
+
+    const return_statistics = await prisma.journeys.aggregate({
+      where: {
+        return_station_id: Number(id),
+      },
+      _count: {
+        departure_station_id: true,
+      },
+      _avg: {
+        covered_distance: true,
+      },
+    });
+
+    const stationData = {
+      ...singleStationData,
+      departure_statistics,
+      return_statistics,
+    };
 
     res.status(200).json({ stationData });
   } catch (error: any) {
