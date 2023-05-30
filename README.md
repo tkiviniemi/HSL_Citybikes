@@ -4,6 +4,23 @@ My take on the Solita's Dev Academy pre-assignment, the assignment can be found 
 
 Purpose of the app is to be able to explore data from journeys made with city bikes in the Helsinki Capital area.
 
+## Technology stack used
+
+- Frontend
+
+  - React
+  - TailwindCSS
+  - TypeScript
+
+<br>
+
+- Backend
+  - TypeScript
+  - Express
+  - Prisma
+  - PostgreSQL
+  - Docker
+
 ## Getting Started
 
 ### Importing the data (2 options)
