@@ -1,6 +1,6 @@
 import JourneyListItem from './JourneyListItem';
 import { Journey } from '../interfaces/journey.interface';
-import ListHeader from './ListHeader';
+import ListHeader from './JourneyListHeader';
 import Pagination from './Pagination';
 
 type SortKey = keyof Journey;
