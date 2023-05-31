@@ -14,13 +14,15 @@ function SingleStation() {
 
   if (isLoading) return <LoadingSpinner />;
 
-  if (error) return <p>Error fetching station data.</p>;
+  if (error || data.error)
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="relative overflow-x-auto rounded-lg border-2 border-red-700 border-opacity-70 bg-slate-100 p-3 shadow-md">
+          <p>Error: {error || data.error}</p>
+        </div>
+      </div>
+    );
 
-  if (!data) {
-    return <p>No station data.</p>;
-  }
-
-  console.log(data);
   const station = data.stationData;
 
   return (
