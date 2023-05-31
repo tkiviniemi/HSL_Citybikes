@@ -235,7 +235,7 @@ Purpose of the app is to be able to explore data from journeys made with city bi
   - [x] Total number of journeys ending at the station
   - [x] The average distance of a journey starting from the station
   - [x] The average distance of a journey ending at the station
-  - [ ] Station location on the map
+  - [x] Station location on the map
   - [ ] Top 5 most popular return stations for journeys starting from the station
   - [ ] Top 5 most popular departure stations for journeys ending at the station
   - [ ] Ability to filter all the calculations per month

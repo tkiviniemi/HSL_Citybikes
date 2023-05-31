@@ -1,5 +1,6 @@
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 import { getStationById } from '../api/stations';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -56,6 +57,25 @@ function SingleStation() {
               </tr>
             </tbody>
           </table>
+          <div>
+            <MapContainer
+              className="h-48 w-full md:h-96"
+              center={[station.lat, station.long]}
+              zoom={13}
+              scrollWheelZoom={true}
+            >
+              <TileLayer
+                attribution='&amp;copy <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              <Marker position={[station.lat, station.long]}>
+                <Popup>
+                  <p>{station.name_fi}</p>
+                  <p>{station.address_fi}</p>
+                </Popup>
+              </Marker>
+            </MapContainer>
+          </div>
         </div>
       </div>
       <div className="flex justify-center md:py-6">
