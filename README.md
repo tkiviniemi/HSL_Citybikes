@@ -202,3 +202,17 @@ Purpose of the app is to be able to explore data from journeys made with city bi
       }
     }
     ```
+
+## Features
+
+- [x] Display all journeys in a list
+
+  - [x] Pagination
+  - [x] Sorting by columns
+  - [ ] Searching
+  - [ ] Filtering
+
+- [x] Display all stations in a list
+  - [x] Pagination
+  - [x] Sorting by columns
+  - [ ] Searching
