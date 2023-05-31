@@ -1,5 +1,6 @@
-import { Request, Response } from 'express';
+import e, { Request, Response } from 'express';
 import prisma from '../db/connection';
+import { Prisma } from '@prisma/client';
 
 const getStations = async (req: Request, res: Response) => {
   try {
@@ -23,6 +24,10 @@ const getStations = async (req: Request, res: Response) => {
 const getStationById = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
+
+    if (!Number(id)) {
+      return res.status(400).json({ error: 'Invalid ID supplied' });
+    }
 
     const singleStationData = await prisma.stations.findUniqueOrThrow({
       where: {
@@ -62,7 +67,10 @@ const getStationById = async (req: Request, res: Response) => {
 
     res.status(200).json({ stationData });
   } catch (error: any) {
-    res.status(500).json({ error: error.message });
+    if (error.code === 'P2025') {
+      return res.status(404).json({ error: 'Station not found' });
+    }
+    res.status(500).json({ message: error.message });
   }
 };
 

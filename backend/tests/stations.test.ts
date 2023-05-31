@@ -194,4 +194,32 @@ describe('GET Station by ID endpoint', () => {
       })
     );
   });
+
+  test('should return 404 if queried with non-existent ID', async () => {
+    const response = await supertest(app)
+      .get('/api/stations/11111')
+      .set('Accept', 'application/json');
+
+    expect(response.status).toEqual(404);
+    expect(response.type).toEqual('application/json');
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        error: 'Station not found',
+      })
+    );
+  });
+
+  test('should return 400 if queried with invalid ID', async () => {
+    const response = await supertest(app)
+      .get('/api/stations/test')
+      .set('Accept', 'application/json');
+
+    expect(response.status).toEqual(400);
+    expect(response.type).toEqual('application/json');
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        error: 'Invalid ID supplied',
+      })
+    );
+  });
 });
