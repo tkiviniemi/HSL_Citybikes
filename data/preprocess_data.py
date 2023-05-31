@@ -1,9 +1,9 @@
 import pandas as pd
 
-may_df = pd.read_csv('data/2021-05.csv')
-june_df = pd.read_csv('data/2021-06.csv')
-july_df = pd.read_csv('data/2021-07.csv')
-stations_df = pd.read_csv('data/Helsingin_ja_Espoon_kaupunkipyöräasemat_avoin.csv')
+may_df = pd.read_csv('2021-05.csv')
+june_df = pd.read_csv('2021-06.csv')
+july_df = pd.read_csv('2021-07.csv')
+stations_df = pd.read_csv('Helsingin_ja_Espoon_kaupunkipyöräasemat_avoin.csv')
 
 
 # Remove journeys with null values
@@ -44,5 +44,5 @@ stations_df['city_sv'].replace(' ', 'Helsingfors', inplace=True)
 
 
 ## Write dataframes to files in database folder
-journeys_df.to_csv('./db/journey_data.csv', index=False)
-stations_df.to_csv('./db/station_data.csv', index=False)
+journeys_df.to_csv('../db/journey_data.csv', index=False)
+stations_df.to_csv('../db/station_data.csv', index=False)

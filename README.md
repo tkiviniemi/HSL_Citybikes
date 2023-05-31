@@ -44,7 +44,7 @@ Purpose of the app is to be able to explore data from journeys made with city bi
   - <https://dev.hsl.fi/citybikes/od-trips-2021/2021-07.csv>
   - <https://opendata.arcgis.com/datasets/726277c507ef4914b0aec3cbcfcbfafc_0.csv>
 
-- Run `preprocess_data.py` file in the `data` folder to process the downloaded data. This script drops journeys with less than 10 second duration or less than 10 meters travelled and refactors some names to make them more uniform.
+- Run `preprocess_data.py` file while in the `data` folder to process the downloaded data. This script drops journeys with less than 10 second duration or less than 10 meters travelled and refactors some names to make them more uniform.
 - The script creates two csv files into the database folder `db`, one for the journeys and one for the stations.
 
 #### 2. Option - Download already processed data
