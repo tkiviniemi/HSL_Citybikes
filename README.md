@@ -82,8 +82,8 @@ Purpose of the app is to be able to explore data from journeys made with city bi
 
 ### Backend unit tests
 
-- Go to backend root folder
-- Run `npm run test` to run all the unit tests for backend
+- Run `docker exec hsl_citybikes-backend-1 npm run test` to run all the unit tests for backend
+  - ``hsl_citybikes-backend-1` is the container name it might be different for you, you can check it with `docker ps`
 
 ### Frontend unit tests
 
@@ -240,8 +240,16 @@ Purpose of the app is to be able to explore data from journeys made with city bi
   - [ ] Top 5 most popular departure stations for journeys ending at the station
   - [ ] Ability to filter all the calculations per month
 
+- [ ] Other
+
+  - [x] Running backend in Docker
+  - [x] Unit tests for frontend
+  - [x] Unit tests for backend
+  - [ ] e2e tests
+
   ## TODO
 
+  - [ ] Indicators for sorting and ordering of columns
   - [ ] Better test coverage and e2e tests
   - [ ] Implement more features from above
   - [ ] More focus on accessibility
