@@ -30,6 +30,7 @@
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "jest-mock": "^29.5.0",
     "jsdom": "^22.1.0",
     "postcss": "^8.4.23",
     "prettier-plugin-tailwindcss": "^0.3.0",
