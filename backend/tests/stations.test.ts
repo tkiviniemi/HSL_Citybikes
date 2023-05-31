@@ -38,3 +38,53 @@ describe('GET Stations endpoint', () => {
     );
   });
 });
+
+describe('GET Station by ID endpoint', () => {
+  test('should return status code 200', (done) => {
+    supertest(app).get('/api/stations/1').expect(200).end(done);
+  });
+
+  test('should return json data', async () => {
+    const response = await supertest(app)
+      .get('/api/stations/1')
+      .set('Accept', 'application/json');
+
+    expect(response.status).toEqual(200);
+    expect(response.type).toEqual('application/json');
+    expect(response.body).toEqual(
+      expect.objectContaining({
+        stationData: expect.arrayContaining([
+          expect.objectContaining({
+            station_id: expect.any(Number),
+            name_fi: expect.any(String),
+            name_sv: expect.any(String),
+            name_en: expect.any(String),
+            address_fi: expect.any(String),
+            address_sv: expect.any(String),
+            city_fi: expect.any(String),
+            city_sv: expect.any(String),
+            capacity: expect.any(Number),
+            long: expect.any(Number),
+            lat: expect.any(Number),
+            departure_statistics: {
+              _count: {
+                departure_station_id: expect.any(Number),
+              },
+              _avg: {
+                covered_distance: expect.any(Number),
+              },
+            },
+            return_statistics: {
+              _count: {
+                return_station_id: expect.any(Number),
+              },
+              _avg: {
+                covered_distance: expect.any(Number),
+              },
+            },
+          }),
+        ]),
+      })
+    );
+  });
+});
