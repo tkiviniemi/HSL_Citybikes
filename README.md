@@ -88,10 +88,10 @@ Purpose of the app is to be able to explore data from journeys made with city bi
 
   - Fetches all journeys
   - Query Parameters
-    - `page`(mandatory, default = 1): Determines how many journeys in the list should be skipped
-    - `limit`(mandatory, default = 10): Determines how many journeys are returned
-    - `orderKey`(mandatory, default = id): Determines by which column the returned journeys are sorted
-    - `orderBy`(mandatory, default = asc): Determines if sort order is ascending or descending
+    - `page`(optional, default = 1): Determines how many journeys in the list should be skipped
+    - `limit`(optional, default = 10): Determines how many journeys are returned
+    - `orderKey`(optional, default = id): Determines by which column the returned journeys are sorted
+    - `orderBy`(optional, default = asc): Determines if sort order is ascending or descending
   - Example of a returned object (used query: `/api/journeys?page=2&limit=20&sortKey=id&sortOrder=asc`):
     ```json
     {
@@ -126,10 +126,10 @@ Purpose of the app is to be able to explore data from journeys made with city bi
 * `/api/stations?page={page}&limit={limit}&sortKey={sortKey}&sortOrder={sortOrder}`
   - Fetches all stations
   - Query Parameters
-    - `page`(mandatory, default = 1): Determines how many stations in the list should be skipped
-    - `limit`(mandatory, default = 10): Determines how many stations are returned
-    - `orderKey`(mandatory, default = station_id): Determines by which column the returned stations are sorted
-    - `orderBy`(mandatory, default = asc): Determines if sort order is ascending or descending
+    - `page`(optional, default = 1): Determines how many stations in the list should be skipped
+    - `limit`(optional, default = 10): Determines how many stations are returned
+    - `orderKey`(optional, default = station_id): Determines by which column the returned stations are sorted
+    - `orderBy`(optional, default = asc): Determines if sort order is ascending or descending
   - Example of a returned object (used query: `/api/stations?page=1&limit=10&sortKey=name_fi&sortOrder=desc`):
     ```json
     {
@@ -213,6 +213,18 @@ Purpose of the app is to be able to explore data from journeys made with city bi
   - [ ] Filtering
 
 - [x] Display all stations in a list
+
   - [x] Pagination
   - [x] Sorting by columns
   - [ ] Searching
+
+- [x] Display single station
+
+  - [x] Total number of journeys starting from the station
+  - [x] Total number of journeys ending at the station
+  - [x] The average distance of a journey starting from the station
+  - [x] The average distance of a journey ending at the station
+  - [ ] Station location on the map
+  - [ ] Top 5 most popular return stations for journeys starting from the station
+  - [ ] Top 5 most popular departure stations for journeys ending at the station
+  - [ ] Ability to filter all the calculations per month
