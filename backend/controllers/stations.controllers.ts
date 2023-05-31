@@ -7,10 +7,10 @@ const getStations = async (req: Request, res: Response) => {
     const sortKey: string = req.query.sortKey as string;
 
     const stationData = await prisma.stations.findMany({
-      skip: Number(page) * Number(limit) - Number(limit),
-      take: Number(limit),
+      skip: Number(page) * Number(limit) - Number(limit) || 0,
+      take: Number(limit) || 10,
       orderBy: {
-        [sortKey]: sortOrder,
+        [sortKey || 'station_id']: sortOrder || 'asc',
       },
     });
 

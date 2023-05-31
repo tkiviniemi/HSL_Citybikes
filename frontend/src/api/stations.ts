@@ -9,9 +9,6 @@ export const getStations = async (
   currentPage: number,
   limitPerPage: number
 ) => {
-  if (!sortKey) sortKey = 'station_id';
-  if (!sortOrder) sortOrder = 'asc';
-
   const res = await fetch(
     `${
       import.meta.env.VITE_API_URL
