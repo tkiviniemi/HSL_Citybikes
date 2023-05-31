@@ -27,7 +27,7 @@ Purpose of the app is to be able to explore data from journeys made with city bi
 - Node
 - Python and it's Pandas library (if processing the data yourself)
 
-## Getting Started
+## Running the app
 
 ### Importing the data (2 options)
 
@@ -47,7 +47,38 @@ Purpose of the app is to be able to explore data from journeys made with city bi
 
 - Download already processed csv files from dropbox:
   - <https://www.dropbox.com/scl/fo/8s5h7cmy3jik1e8ws1wvq/h?dl=0&rlkey=33cebithff08993fk0wi9m8a0>
-- Place `station_data.csv` and `journey_data.csv` files into `db` folder
+- Place `station_data.csv` and `journey_data.csv` files into `db` folder (the one in the root folder, not in the backend folder)
+
+### Running the database
+
+- Make sure your Docker Desktop is running
+- Run `docker compose up -d` in the project root folder to start the database
+
+### Running the backend
+
+- Go to the backend folder
+- Run `npm install` in the backend folder
+- Create a `.env` file in the backend folder for enviroment variables with the next lines (_I am aware I shouldn't give secrets this way but since the whole app is ran locally and none of the secrets are anything special, I think it's OK._):
+  ```
+  PORT=3000
+  DATABASE_URL="postgresql://postgres:postgres@localhost:5432/hsl_citybikes?schema=citybikes_schema"
+  CORS_ORIGIN=http://localhost:5173
+  ```
+- Run `npm run dev` in the backend folder
+
+### Running the frontend
+
+- Go to the frontend folder
+- Run `npm install` in the frontend folder
+- Create a `.env` file in the frontend folder for enviroment variables with the next lines (_I am aware I shouldn't give secrets this way but since the whole app is ran locally and none of the secrets are anything special, I think it's OK._):
+  ```
+  VITE_API_URL=http://localhost:3000
+  ```
+- Run `npm run dev` in the frontend folder
+
+### Visit the website
+
+- Go to `http://localhost:5173/`
 
 ## API Documentation
 
