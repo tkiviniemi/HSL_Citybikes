@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import StationListItem from './StationListItem';
 import { Station } from '../interfaces/station.interface';
 import Pagination from './Pagination';
@@ -20,6 +23,20 @@ function StationList({
   currentPage: number;
   limitPerPage: number;
 }) {
+  const [station_id, setStation_id] = useState<number>(0);
+
+  const navigate = useNavigate();
+
+  const handleStationIdChange = (id: number) => {
+    setStation_id(id);
+  };
+
+  useEffect(() => {
+    if (station_id !== 0) {
+      navigate(`/stations/${station_id}`);
+    }
+  }, [station_id, navigate]);
+
   const keys = [
     { id: 'station_id', name: 'ID' },
     { id: 'name_fi', name: 'Station Name' },
@@ -45,7 +62,11 @@ function StationList({
         </thead>
         <tbody>
           {stationData.map((station: Station) => (
-            <StationListItem key={station.station_id} station={station} />
+            <StationListItem
+              key={station.station_id}
+              station={station}
+              handleStationIdChange={handleStationIdChange}
+            />
           ))}
         </tbody>
       </table>
