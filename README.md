@@ -31,7 +31,7 @@ Purpose of the app is to be able to explore data from journeys made with city bi
 
 ### Importing the data (2 options)
 
-#### 1. option - Process the data yourself
+#### 1. Option - Process the data yourself
 
 - Download the three csv files below and move them to `data` folder
 
