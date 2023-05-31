@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { getStationById } from '../api/stations';
 import LoadingSpinner from '../components/LoadingSpinner';
+import { StationWithStats } from '../interfaces/stationWithStats.interface';
 
 function SingleStation() {
   const { station_id } = useParams();
@@ -23,7 +24,7 @@ function SingleStation() {
       </div>
     );
 
-  const station = data.stationData;
+  const station: StationWithStats = data.stationData;
 
   return (
     <div>
