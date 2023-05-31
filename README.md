@@ -80,6 +80,18 @@ Purpose of the app is to be able to explore data from journeys made with city bi
 
 - Go to `http://localhost:5173/`
 
+## Running the tests
+
+### Backend unit tests
+
+- Go to backend root folder
+- Run `npm run test` to run all the unit tests for backend
+
+### Frontend unit tests
+
+- Go to backend root folder
+- Run `npm run test` to run all the unit tests for backend
+
 ## API Documentation
 
 ### GET
