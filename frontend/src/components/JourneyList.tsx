@@ -32,9 +32,10 @@ function JourneyList({
     <div className="relative overflow-x-auto rounded-lg bg-slate-100 shadow-md">
       <table className="text-md table-fixed">
         <thead className="border-b-2 border-cyan-800 text-left text-sm uppercase">
-          <tr>
+          <tr role="header">
             {keys.map((key) => (
               <th
+                scope="col"
                 className="p-3 font-semibold"
                 key={key.id}
                 onClick={() => handleSortingChange(key.id as keyof Journey)}
