@@ -11,5 +11,9 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',
+    coverage: {
+      provider: 'c8',
+      exclude: ['**/node_modules/**', '**/src/test/**'],
+    },
   },
 });

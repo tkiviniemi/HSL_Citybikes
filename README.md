@@ -29,6 +29,10 @@ Purpose of the app is to be able to explore data from journeys made with city bi
 
 ## Running the app
 
+### Clone the repo
+
+- Clone the repository to your computer
+
 ### Importing the data (2 options)
 
 #### 1. Option - Process the data yourself
@@ -91,6 +95,7 @@ Purpose of the app is to be able to explore data from journeys made with city bi
 
 - Go to backend root folder
 - Run `npm run test` to run all the unit tests for backend
+  - For coverage you can run `npm run test:coverage`
 
 ## API Documentation
 
@@ -240,3 +245,9 @@ Purpose of the app is to be able to explore data from journeys made with city bi
   - [ ] Top 5 most popular return stations for journeys starting from the station
   - [ ] Top 5 most popular departure stations for journeys ending at the station
   - [ ] Ability to filter all the calculations per month
+
+  ## TODO
+
+  - [ ] Better test coverage and e2e tests
+  - [ ] Implement more features from above
+  - [ ] More focus on accessibility
